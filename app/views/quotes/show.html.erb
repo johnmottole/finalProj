@@ -1,0 +1,11 @@
+<h1 style="color:blue;font-size:35px" >Congrats, you just added a new quote</h1>
+<p style="color:blue;font-size:30px">
+  <strong>Words:</strong>
+  "<%= @quote.words %>"
+</p>
+ 
+<p style="color:blue;font-size:30px">
+  <strong>Author:</strong>
+  <%= @quote.author %>
+</p>
+<%= link_to(image_tag("back2.png"), welcome_index_path) %>

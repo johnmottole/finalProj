@@ -1,0 +1,16 @@
+<h1>Listing articles</h1>
+ 
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Text</th>
+  </tr>
+ 
+  <% @quotess.each do |q| %>
+    <tr>
+      <td><%= q.words %></td>
+      <td><%= q.author %></td>
+      <td><%= q.user %></td>
+    </tr>
+  <% end %>
+</table>

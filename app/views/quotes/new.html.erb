@@ -1,0 +1,17 @@
+<%= form_for :quotes, url: quotes_path do |f| %>
+  <p style="color:blue;font-size:30px">
+    <%= f.label :quote %><br>
+    <%= f.text_area :words %>
+  </p>
+ 
+  <p style="color:blue;font-size:30px">
+    <%= f.label :author %><br>
+    <%= f.text_field :author %>
+  </p>
+	
+	<%= f.hidden_field :user, :value => @currentUser.to_s %>
+  <p >
+    <%= f.submit %>
+  </p>
+  <%= link_to(image_tag("back2.png"), welcome_index_path) %>
+<% end %>
