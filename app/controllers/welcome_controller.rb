@@ -1,6 +1,7 @@
 class WelcomeController < ApplicationController
+before_filter :authorize
   def index
-    @quotess =  Quotes.order('created_at DESC')
+    @quotess = Quotes.where(:user => current_user.name).order('created_at DESC')
   end
   
   #def show_time(q)

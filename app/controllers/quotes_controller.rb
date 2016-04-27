@@ -6,7 +6,7 @@ class QuotesController < ApplicationController
         @quote = Quotes.find(params[:id])
     end
     def new
-        @currentUser = "johnm123"
+        @currentUser ||= User.find(session[:user_id]).name if session[:user_id]
     end
     def create
         @quote = Quotes.new(quote_params)

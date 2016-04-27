@@ -1,6 +1,5 @@
 <div>
 <h1 style="font-size:40px"> Daily Plus</h1>
-<p style="font-size:20px">Hello, johnm123</p><br>
 <%= link_to(image_tag("sharequote.png"), new_quote_path) %>
 </div>
 <br>
@@ -11,7 +10,6 @@
 		<div id="timee"> 
 			<%= (q.created_at - (4*60*60)).month %> / <%= (q.created_at - (4*60*60)).day %> <br>
 			<%= (q.created_at - (4*60*60)).hour  %>:<%= (q.created_at - (4*60*60)).min %>
-			
 		</div>
     	 "<%= q.words %>" <br>
    		  - <%= q.author %> <br>
