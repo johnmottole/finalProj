@@ -2,35 +2,16 @@ class WelcomeController < ApplicationController
 before_filter :authorize
   def index
     @quotess = Quotes.where(:user => current_user.name).order('created_at DESC')
+    @followercount = Follow.where(:following => current_user.name).count
+    @followingcount = Follow.where(:follower => current_user.name).count
+
   end
   
-  #def show_time(q)
-  #    {
-  #       isPM = false
-  ##         timeShow = "12:"
-  #      elsif q.created_at - (4*60*60)).hour > 12
-  #         timeShow = ((q.created_at - (4*60*60)).hour) - 12).to_s + ":"
-  ##       elsif q.created_at - (4*60*60)).hour == 12
-  #        timeShow = "12:"
-  #         isPM = true
-  #       else
-  #         timeShow = ((q.created_at - (4*60*60)).hour).to_s + ":"
-  #       end
-  #
-  #       if q.created_at - (4*60*60)).min < 10
-  #           timeShow = timeShow + "0"
-  #       end
-  #       timeShow = timeShow + + q.created_at - (4*60*60)).min
-          
-          #       if isPM = false
-          #            timeShow = timeShow + "AM"
-          # else
-          #  timeShow = timeShow + "PM"
-          # end
-          
-          #timeShow
-              
-              #}
-              # end
+  def destroy
+      @quotess = Quotes.find(params[:id])
+      @quotess.destroy
       
+      redirect_to welcome_index_path
+  end
+  
 end

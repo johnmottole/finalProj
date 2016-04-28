@@ -1,15 +1,23 @@
 <div>
-<h1 style="font-size:40px"> Daily Plus</h1>
+
+
+<h1 style="font-size:40px; color:blue"> Daily Quotes</h1>
+
 <%= link_to(image_tag("sharequote.png"), new_quote_path) %>
+<%= link_to(image_tag("add_friend.png"), new_follow_path) %>
+<%= link_to(image_tag("quoteimg.png"), new_like_path) %>
+
 </div>
 <br>
+<div style="color:blue; font-size:20pt">Followers: <%= @followercount %>
+Following: <%= @followingcount %></div>
 <br>
-
+<br>
 <% @quotess.each do |q| %>
 	<div id="quote_show">
 		<div id="timee"> 
 			<%= (q.created_at - (4*60*60)).month %> / <%= (q.created_at - (4*60*60)).day %> <br>
-			<%= (q.created_at - (4*60*60)).hour  %>:<%= (q.created_at - (4*60*60)).min %>
+			<%= show_time(q) %>
 		</div>
     	 "<%= q.words %>" <br>
    		  - <%= q.author %> <br>

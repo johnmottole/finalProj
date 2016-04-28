@@ -1,0 +1,14 @@
+<%= form_for :follows, url: follows_path do |f| %>  
+ 	<%= f.hidden_field :follower, :value => @currentUser.to_s %>
+
+<p>
+    <%= f.label :Username %><br>
+    <%= f.text_field :following %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+  <%= link_to(image_tag("back2.png"), welcome_index_path) %>
+
+<% end %>
